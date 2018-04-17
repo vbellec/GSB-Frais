@@ -12,27 +12,29 @@
         <script src="js/jquery.js"></script>
 		<script src="js/bootstrap.js"></script>
     </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-bleu fixed-top">
-            <a class="navbar-brand" href="#">
-                <span class="gras">GSB</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                        </div>
-                    </li>
-                </ul>
+        <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-6 index">
+                    <h1>Galaxy Swiss bourdin</h1>
+                    <img src="css/image/gsb.png" alt="GSB" title="GSB">
+                </div>
             </div>
-        </nav>
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 index">
+                    <form action="php/connexion.php" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="login" placeholder="Login" name="login">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="pwd" placeholder="Mot de passe" name="pwd">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Se connecter" />
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

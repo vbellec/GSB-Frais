@@ -1,0 +1,23 @@
+.bg-bleu {
+    background-color:#0056b3;
+}
+.gras {
+    font-weight:bold;
+}
+.index {
+    padding-top:50px;
+}
+.blanc {
+    color:rgba(255, 255, 255, 0.5);
+}
+.corps {
+    padding-top:70px;
+}
+.centre-nav {
+    margin-right:400px;
+}
+@media (max-width:992px){
+    .centre-nav, .status {
+        display:none;
+    }
+}

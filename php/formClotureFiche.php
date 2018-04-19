@@ -16,8 +16,28 @@
 		<script src="../js/bootstrap.js"></script>
     </head>
     <body>
+    <?php @session_start();
+    // echo $_SESSION['connect'];
+    require "connexion_db.php";
+?>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="footer, links, icons">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+		<title>
+			GSB - Galaxy Swiss Bourdin
+		</title>
+		<link rel="stylesheet" href="../css/bootstrap.css">
+		<link rel="stylesheet" href="../css/default.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="../js/jquery.js"></script>
+		<script src="../js/bootstrap.js"></script>
+    </head>
+    <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-bleu fixed-top">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="accueil.php">
                 <span class="gras">GSB</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,34 +45,12 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <!-- CONTROLE DU STATUS -->
-                    <!-- ADMINISTRATEUR -->
-                    <?php 
-                        if ($_SESSION['connect'] == "Administrateur") { 
-                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>
                     </li>
-                    <!-- MEDECIN -->
-                    <?php    
-                        } elseif ($_SESSION['connect'] == "Médecin") { 
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion des visiteur</a>
-                    </li>
-                    <!-- VISITEUR -->
-                    <?php    
-                        } else { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion des utilisateurs</a>
-                    </li>
-                    <?php        
-                        }
-                    ?>
-                    <!-- FIN DU CONTROLE DU STATUS -->
                     <li class="nav-item">
                         <a class="nav-link" href="deconnexion.php">
                             Se déconnecter
@@ -63,18 +61,8 @@
                 <span class="nav-link blanc status">status : <?php echo $_SESSION['connect']; ?></span>
             </div>
         </nav>
-        <div class="centre corps-accueil">
-            <?php 
-                if ($_SESSION['connect'] == "Administrateur") { 
-            ?>
-                <a class="btn btn-primary btn-lg" href="gestionVisiteur.php">Gestion des visiteur</a>
-                <br />
-                <br />
-                <br />
-                <a class="btn btn-primary btn-lg" href="formClotureFiche.php">Clôturer les fiches de frais</a>
-            <?php
-                }
-            ?>
+        <div class="centre milieu">
+            <a class="btn btn-primary btn-lg" href="cloturerFiche.php">Clôturer les fiches de frais</a>
         </div>
     </body>
 </html>

@@ -31,7 +31,7 @@
                         <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion des utilisateurs</a>
+                        <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="deconnexion.php">

@@ -26,6 +26,12 @@
 .hidden {
     display:none;
 }
+.milieu {
+    padding-top:350px;
+}
+.corps-accueil {
+    padding-top:200px;
+}
 @media (max-width:992px){
     .centre-nav, .status {
         display:none;

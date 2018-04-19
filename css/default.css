@@ -14,7 +14,14 @@
     padding-top:70px;
 }
 .centre-nav {
-    margin-right:400px;
+    margin-right:350px;
+    font-size: 180%!important;
+}
+.droite {
+    text-align:right;
+}
+.centre {
+    text-align:center;
 }
 @media (max-width:992px){
     .centre-nav, .status {

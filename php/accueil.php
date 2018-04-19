@@ -31,7 +31,7 @@
                         if ($_SESSION['connect'] == "Administrateur") { 
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion des visiteur</a>
+                        <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Gestion des utilisateurs</a>

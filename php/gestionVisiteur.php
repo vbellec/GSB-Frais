@@ -77,7 +77,7 @@
                                     echo "<td>".$nom."</td>";
                                     echo "<td>".$prenom."</td>";
                                     echo "<td>".date('d/m/Y', strtotime($date))."</td>";
-                                    echo "<td><a href=\"modifierVisiteur.php?id=".$id."\" class=\"btn btn-primary\"><i class=\"fa fa-wrench\"></i> Modifier</a>";
+                                    echo "<td><a href=\"formModifVisiteur.php?id=".$id."\" class=\"btn btn-primary\"><i class=\"fa fa-wrench\"></i> Modifier</a>";
                                     echo "<td><a href=\"supprimerVisiteur.php?id=".$id."\" class=\"btn btn-danger\"><i class=\"	fa fa-user-times\"></i> Supprimer</a>";
                                     echo "</tr>";
                                 }

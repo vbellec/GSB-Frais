@@ -23,6 +23,9 @@
 .centre {
     text-align:center;
 }
+.hidden {
+    display:none;
+}
 @media (max-width:992px){
     .centre-nav, .status {
         display:none;

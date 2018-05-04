@@ -19,6 +19,37 @@
 		<script src="../js/jquery-ui.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-bleu fixed-top">
+            <a class="navbar-brand" href="accueil.php">
+                <span class="gras">GSB</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Module administration
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="listeVisiteur.php">liste des utilisateurs</a>
+                            <a class="dropdown-item" href="formAjoutVisiteur.php">Ajouter un utilisateur</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="deconnexion.php">
+                            Se déconnecter
+                        </a>
+                    </li>
+                </ul>
+                <h1 class="centre-nav">Bienvenue <?php echo $_SESSION['prenom']. " ".strtoupper($_SESSION['nom']); ?></h1>
+                <span class="nav-link blanc status">status : <?php echo $_SESSION['connect']; ?></span>
+            </div>
+        </nav>
         <div class="container corps">
             <div class="row">
                 <div class="col-md-12">
@@ -43,7 +74,7 @@
                             <input type="submit" class="btn btn-success" value="Ajouter l'utilisateur">
                         </div>
                     </form>
-                    <small>* Les champs marqué "*" sont obligatoires</small><br />
+                    <small>* Les champs marqué d'une étoile sont obligatoires</small><br />
                     <small>** le login sera le nom de famille de l'utilisateur en minuscule</small>
                 </div>
             </div>

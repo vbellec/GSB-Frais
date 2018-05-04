@@ -16,12 +16,12 @@
         echo "ERREUR<br />";
         echo "<a href=\"../index.php\">Retourner à la page de connexion</a>";
     } else {    
-    while ($row = $result->fetch()) {
+        while ($row = $result->fetch()) {
 
             if ($row['idStatus'] == 'admin') {
                 $_SESSION['connect'] = "Administrateur";
-            } elseif ($row['idStatus'] == "medec") {
-                $_SESSION['connect'] = "Médecin";
+            } elseif ($row['idStatus'] == "compt") {
+                $_SESSION['connect'] = "Comptable";
             } else {
                 $_SESSION['connect'] = "Visiteur";
             }

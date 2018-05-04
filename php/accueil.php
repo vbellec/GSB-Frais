@@ -30,18 +30,30 @@
                     <?php 
                         if ($_SESSION['connect'] == "Administrateur") { 
                     ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Module administration
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="listeVisiteur.php">Liste des utilisateurs</a>
+                            <a class="dropdown-item" href="formAjoutVisiteur.php">Ajouter un utilisateur</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>
                     </li>
-                    <!-- MEDECIN -->
+                    <!-- COMPTABLE -->
                     <?php    
-                        } elseif ($_SESSION['connect'] == "Médecin") { 
+                        } elseif ($_SESSION['connect'] == "Comptable") { 
                     ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Gestion des visiteur</a>
+                        <a class="nav-link" href="formValiderFicheFrais.php">Validation des fiches de frais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">liste des fiches de frais</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">mettre en paiement</a>
                     </li>
                     <!-- VISITEUR -->
                     <?php    
@@ -67,7 +79,11 @@
             <?php 
                 if ($_SESSION['connect'] == "Administrateur") { 
             ?>
-                <a class="btn btn-primary btn-lg" href="gestionVisiteur.php">Gestion des visiteur</a>
+                <a class="btn btn-primary btn-lg" href="listeVisiteur.php">Liste des utilisateurs</a>
+                <br />
+                <br />
+                <br />
+                <a class="btn btn-primary btn-lg" href="formAjoutVisiteur.php">Ajouter un utilisateur</a>
                 <br />
                 <br />
                 <br />

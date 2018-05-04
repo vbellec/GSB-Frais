@@ -42,21 +42,56 @@
                                 $dateEmbauche = $row['dateEmbauche'];
                                 $pwd = $row['pwd'];        
                         ?>
-                        <div class="form-group col-md-4">
+                        <div class="form-group col-md-12">
                             <input type="text" value="<?php echo $id; ?>" class="hidden" name="id">
-                            <input type="text" class="form-control" placeholder="<?php echo $nom; ?>" name="nom">
+                            <div class="form-group row">
+                                <label for="nom" class="col-sm-2 col-form-label">Nom : </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="nom" placeholder="<?php echo $nom; ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" placeholder="<?php echo $prenom; ?>" name="prenom">
+                            <div class="form-group row">
+                                <label for="prenom" class="col-sm-2 col-form-label">Prénom : </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="prenom" placeholder="<?php echo $prenom; ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" id="dateEmbauche" placeholder="<?php echo $dateEmbauche; ?>" name="dateEmbauche">
+                            <div class="form-group row">
+                                <label for="dateEmbauche" class="col-sm-2 col-form-label">Date d'embauche : </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="dateEmbauche"  name="dateEmbauche" placeholder="<?php if ($dateEmbauche == NULL) { echo ''; } else { echo $dateEmbauche; } ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" placeholder="<?php echo $adresse; ?>" name="adresse">
+                            <div class="form-group row">
+                                <label for="adresse" class="col-sm-2 col-form-label">Adresse :  </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="adresse" placeholder="<?php echo $adresse; ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" placeholder="<?php echo $cp; ?>" name="cp">
+                            <div class="form-group row">
+                                <label for="cp" class="col-sm-2 col-form-label">Code postal :  </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="cp" placeholder="<?php echo $cp; ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" placeholder="<?php echo $ville; ?>" name="ville">
+                            <div class="form-group row">
+                                <label for="ville" class="col-sm-2 col-form-label">Ville :  </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="ville" placeholder="<?php echo $ville; ?>">
+                                </div>
+                            </div>
                             <br />
-                            <input type="text" class="form-control" placeholder="<?php echo $pwd; ?>" name="pwd">
+                            <div class="form-group row">
+                                <label for="pwd" class="col-sm-2 col-form-label">Mot de passe :  </label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control"  name="pwd" placeholder="<?php echo $pwd; ?>">
+                                </div>
+                            </div>
                             <br />
                             <input type="submit" class="btn btn-success" value="Modifier l'utilisateur">
                         </div>

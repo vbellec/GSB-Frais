@@ -1,23 +1,5 @@
 <?php @session_start();
     // echo $_SESSION['connect'];
-?>
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="keywords" content="footer, links, icons">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
-		<title>
-			GSB - Galaxy Swiss Bourdin
-		</title>
-		<link rel="stylesheet" href="../css/bootstrap.css">
-		<link rel="stylesheet" href="../css/default.css">
-        <script src="../js/jquery.js"></script>
-		<script src="../js/bootstrap.js"></script>
-    </head>
-    <body>
-    <?php @session_start();
-    // echo $_SESSION['connect'];
     require "connexion_db.php";
 ?>
 <html>
@@ -31,9 +13,10 @@
 		</title>
 		<link rel="stylesheet" href="../css/bootstrap.css">
 		<link rel="stylesheet" href="../css/default.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/jquery-ui.css">
         <script src="../js/jquery.js"></script>
 		<script src="../js/bootstrap.js"></script>
+		<script src="../js/jquery-ui.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-bleu fixed-top">
@@ -45,8 +28,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Module administration
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="listeVisiteur.php">liste des utilisateurs</a>
+                            <a class="dropdown-item" href="formAjoutVisiteur.php">Ajouter un utilisateur</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>

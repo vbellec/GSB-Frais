@@ -27,8 +27,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="gestionVisiteur.php">Gestion des visiteur</a>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                            Module administration
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="listeVisiteur.php">liste des utilisateurs</a>
+                            <a class="dropdown-item" href="formAjoutVisiteur.php">Ajouter un utilisateur</a>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="formClotureFiche.php">Clôturer les fiches de frais</a>
@@ -46,12 +52,8 @@
         <div class="container corps">
             <div class="row">
                 <div class="col-md-12">
-                    <h2>Gestion des visiteurs</h2>
+                    <h2>liste des utilisateurs</h2>
                     <br />
-                    <h3>Liste des visiteurs</h3>
-                    <div class="droite">
-                        <a href="formAjoutVisiteur.php" class="btn btn-success"><i class="fa fa-user-plus"></i> Ajouter un visiteur</a>
-                    </div>
                     <table class="table">
                         <theader>
                             <tr>
@@ -59,24 +61,27 @@
                                 <th scope="col">Nom</th>
                                 <th scope="col">Prénom</th>
                                 <th scope="col">Date d'embauche</th>
+                                <th scope="col">Status</th>
                                 <th scope="col">Modifier</th>
                                 <th scope="col">Supprimer</th>
                             </tr>
                         </theader>
                         <tbody>
                             <?php
-                                $result = $db->query("Select * from users where idStatus = 'visit'");
+                                $result = $db->query("select users.id, nom, prenom, dateEmbauche, status from users, status where users.idStatus = status.id;");
                                 while ($row = $result->fetch()) {
                                     $id = $row['id'];
                                     $nom = $row['nom'];
                                     $prenom = $row['prenom'];
                                     $date = $row['dateEmbauche'];
+                                    $status = $row['status'];
 
                                     echo "<tr>";
                                     echo "<td scope=\"row\">".$id."</td>";
                                     echo "<td>".$nom."</td>";
                                     echo "<td>".$prenom."</td>";
-                                    echo "<td>".date('d/m/Y', strtotime($date))."</td>";
+                                    if ($date == '') { echo "<td></td>"; } else { echo "<td>".date('d/m/Y', strtotime($date))."</td>"; }
+                                    echo "<td>".$status."</td>";
                                     echo "<td><a href=\"formModifVisiteur.php?id=".$id."\" class=\"btn btn-primary\"><i class=\"fa fa-wrench\"></i> Modifier</a>";
                                     echo "<td><a href=\"supprimerVisiteur.php?id=".$id."\" class=\"btn btn-danger\"><i class=\"	fa fa-user-times\"></i> Supprimer</a>";
                                     echo "</tr>";

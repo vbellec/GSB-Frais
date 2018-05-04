@@ -84,4 +84,4 @@
     ));
 	//print_r($sql->errorInfo());
 	
-	echo "<script>document.location.replace('gestionVisiteur.php');</script>";
+	echo "<script>document.location.replace('listeVisiteur.php');</script>";

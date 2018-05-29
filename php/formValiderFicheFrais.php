@@ -59,7 +59,7 @@
                                 <?php
                                     $result = $db->query("select id, nom, prenom from users where status = \"visiteur\";");
 
-                                    while($row = $result->fetch()) {
+                                    while($row = $result->fetch_array(MYSQLI_BOTH)) {
                                         $id = $row['id'];
                                         $nom = $row['nom'];
                                         $prenom = $row['prenom'];

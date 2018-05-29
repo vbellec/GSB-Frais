@@ -74,7 +74,7 @@
 
                                 $result = $db->query("select fichefrais.id, mois, annee, montantValide, etat.libelle from fichefrais, users, etat where idVisiteur = users.id and idEtat = etat.id and nom = '".$_SESSION['nom']."' and prenom = '".$_SESSION['prenom']."';");
 
-                                while ($row = $result->fetch()) {
+                                while ($row = $result->fetch_array(MYSQLI_BOTH)) {
                                     $id = $row['id'];
                                     $mois = $row['mois'];
                                     $annee = $row['annee'];
@@ -87,7 +87,7 @@
                                         echo "<td>".$etat."</td>";
                                         echo "<td><a class=\"btn btn-info\" href=\"formSuivreFicheFraisSpeciale.php?id=".$id."\">Voir</a></td>";
                                         echo "<td><a class=\"btn btn-primary\" href=\"formModifierFicheFrais.php?id=".$id."\">Modifier</a></td>";
-                                        echo "<td><a class=\"btn btn-danger\" href=\"supprimerFicheFrais.php\" onclick=\"confirm('La fiche de frais va être supprimée. Êtes vous sûr de vouloir continuer ?')\">Supprimer</a></td>";
+                                        echo "<td><a class=\"btn btn-danger\" href=\"supprimerFicheFrais.php?id=".$id."\" onclick=\"confirm('La fiche de frais va être supprimée. Êtes vous sûr de vouloir continuer ?')\">Supprimer</a></td>";
                                     echo "</tr>";
                                 }
                             ?>

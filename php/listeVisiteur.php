@@ -69,7 +69,7 @@
                         <tbody>
                             <?php
                                 $result = $db->query("select users.id, nom, prenom, dateEmbauche, status from users;");
-                                while ($row = $result->fetch()) {
+                                while ($row = $result->fetch_array(MYSQLI_BOTH)) {
                                     $id = $row['id'];
                                     $nom = $row['nom'];
                                     $prenom = $row['prenom'];

@@ -10,7 +10,7 @@
     $ville = $_POST['ville'];
     $login = strtolower($_POST['nom']);
     $pwd = md5($_POST['pwd']);
-    $status = "visit";
+    $status = "visiteur";
 
     /*
     echo "nom : ".$nom."<br />";
@@ -24,18 +24,10 @@
     echo "status : ".$status."<br />";
     */
 
-    $sql = $db->prepare('INSERT INTO users (nom, prenom, adresse, cp, ville, idStatus, login, pwd, dateEmbauche) VALUES (:nom, :prenom, :adresse, :cp, :ville, :idStatus, :login, :pwd, :dateEmbauche);');
+    // echo "INSERT INTO users (nom, prenom, adresse, cp, ville, `status`, login, pwd, dateEmbauche) VALUES ('$nom',  '$prenom', '$adresse', '$ville', $cp, '$status',  '$login', '$pwd', date($dateEmbauche));";
 
-    $sql->execute(array(
-        'nom' => $nom,
-        'prenom' => $prenom,
-        'adresse' => $adresse,
-        'ville' => $ville,
-        'cp' => $cp,
-        'idStatus' => $status,
-        'login' => $login,
-        'pwd' => $pwd,
-        'dateEmbauche' => $dateEmbauche
-    ));
+    $sql = $db->query("INSERT INTO users (nom, prenom, adresse, cp, ville, `status`, login, pwd, dateEmbauche) VALUES ('$nom',  '$prenom', '$adresse', '$ville', $cp, '$status',  '$login', '$pwd', STR_TO_DATE('$dateEmbauche','%Y-%m-%d'));");
+      
+    header('location: listeVisiteur.php');
 
-    echo "<script>document.location.replace('gestionVisiteur.php');</script>";
+    

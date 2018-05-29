@@ -98,7 +98,7 @@
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-success" name="fraisAuForfait">
-                            </div>
+                            </div><!--
                             <div class="col-md-6">
                                 <h4>Frais hors forfaits :</h4>
                                 <div class="form-group row">
@@ -120,7 +120,7 @@
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-success" name="fraisHorsForfait">
-                            </div>
+                            </div>-->
                         </div>
                     </form>
                 </div>

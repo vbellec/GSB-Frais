@@ -32,7 +32,7 @@
                     <br />
                     <form method="POST" action="modifierUtilsateur.php">
                         <?php 
-                            while($row = $sql->fetch()) { 
+                            while($row = $sql->fetch_array(MYSQLI_BOTH)) { 
                                 $id = $row['id'];
                                 $nom = $row ['nom'];
                                 $prenom = $row['prenom'];

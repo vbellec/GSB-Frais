@@ -13,7 +13,7 @@
 
 	$sql = $db->query("SELECT * FROM users where id = ".$id);
 		
-		while ($row = $sql->fetch()) {
+		while ($row = $sql->fetch_array(MYSQLI_BOTH)) {
 			$nom_old = $row['nom'];
             $prenom_old = $row['prenom'];
             $dateEmbauche_old = date('Y-m-d', strtotime($row['dateEmbauche']));
@@ -71,9 +71,13 @@
 	// echo $ville."<br />";
 	// echo $date_diplome."<br />";
 	
-	$update = $db->prepare("UPDATE users SET nom = :nom, prenom = :prenom, dateEmbauche = :dateEmbauche, adresse = :adresse, cp = :cp, ville = :ville, pwd = :pwd WHERE id=".$id.";");
+	//$update = $db->prepare("UPDATE users SET nom = :nom, prenom = :prenom, dateEmbauche = :dateEmbauche, adresse = :adresse, cp = :cp, ville = :ville, pwd = :pwd WHERE id=".$id.";");
 	
-	$update->execute(array(
+	$update = $db->query("UPDATE users SET nom = '$nom', prenom = '$prenom', dateEmbauche = STR_TO_DATE('$dateEmbauche','%Y-%m-%d'), adresse = '$adresse', cp = '$cp', ville = '$ville', pwd = '$pwd' WHERE id=$id;");
+
+	//$sql = $db->query("INSERT INTO users (nom, prenom, adresse, cp, ville, `status`, login, pwd, dateEmbauche) VALUES ('$nom',  '$prenom', '$adresse', '$ville', $cp, '$status',  '$login', '$pwd', date($dateEmbauche));");
+
+	/*$update->execute(array(
         'nom' => $nom,
         'prenom' => $prenom,
         'dateEmbauche' => date('Y-m-d', strtotime($dateEmbauche)),
@@ -81,7 +85,8 @@
         'cp' => $cp,
         'ville' => $ville,
         'pwd' => $pwd
-    ));
+	));
+*/	
 	//print_r($sql->errorInfo());
 	
 	echo "<script>document.location.replace('listeVisiteur.php');</script>";

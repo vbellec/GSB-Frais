@@ -5,6 +5,6 @@
 
     echo $id;
 
-    $sql = $db->exec("DELETE FROM users WHERE id=".$id);
+    $sql = $db->query("DELETE FROM users WHERE id=".$id);
 
-    echo "<script>document.location.replace('gestionVisiteur.php');</script>";
+    echo "<script>document.location.replace('listeVisiteur.php');</script>";

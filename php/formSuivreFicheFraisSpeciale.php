@@ -5,7 +5,7 @@
     $id=$_GET['id'];
 
     $date = $db->query("select mois, annee from fichefrais where id = ".$id.";");
-    while($row = $date->fetch()) {
+    while($row = $date->fetch_array(MYSQLI_BOTH)) {
         $mois = $row['mois'];
         $annee = $row['annee'];
     } 
@@ -75,22 +75,22 @@
                         <tbody>
                             <?php 
                                 $sqlEtape = $db->query("select quantite from lignefraisforfait where idFicheFrais = ".$id." and idForfait = \"ETP\";");
-                                while($row = $sqlEtape->fetch()) {
+                                while($row = $sqlEtape->fetch_array(MYSQLI_BOTH)) {
                                     $etape = $row['quantite'];
                                 }
 
                                 $sqlKm = $db->query("select quantite from lignefraisforfait where idFicheFrais = ".$id." and idForfait = \"KM\";");
-                                while($row = $sqlKm->fetch()) {
+                                while($row = $sqlKm->fetch_array(MYSQLI_BOTH)) {
                                     $km = $row['quantite'];
                                 }
 
                                 $sqlNuit = $db->query("select quantite from lignefraisforfait where idFicheFrais = ".$id." and idForfait = \"NUI\";");
-                                while($row = $sqlNuit->fetch()) {
+                                while($row = $sqlNuit->fetch_array(MYSQLI_BOTH)) {
                                     $nuit = $row['quantite'];
                                 }
 
                                 $sqlRepas = $db->query("select quantite from lignefraisforfait where idFicheFrais = ".$id." and idForfait = \"REP\";");
-                                while($row = $sqlRepas->fetch()) {
+                                while($row = $sqlRepas->fetch_array(MYSQLI_BOTH)) {
                                     $repas = $row['quantite'];
                                 }
 

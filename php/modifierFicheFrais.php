@@ -10,7 +10,7 @@
 
     /* ETAPE */
     $sqlEtape = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"ETP\";");
-    while ($row = $sqlEtape->fetch()) {
+    while ($row = $sqlEtape->fetch_array(MYSQLI_BOTH)) {
         $old_etape = $row['quantite'];
     }
     if($new_etape == ""){
@@ -18,14 +18,12 @@
 	} else {
 		$etape = $new_etape;
     }
-    $updateEtape = $db->prepare("update lignefraisforfait set quantite = :quantite where idFicheFrais = ".$id." and idForfait = \"ETP\";");
-    $updateEtape->execute(array(
-        "quantite" => $etape
-    ));
+    $updateEtape = $db->query("update lignefraisforfait set quantite = $etape where idFicheFrais = $id and idForfait = \"ETP\";");
+    
 
     /* KILOMETRE */
     $sqlKm = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"KM\";");
-    while ($row = $sqlKm->fetch()) {
+    while ($row = $sqlKm->fetch_array(MYSQLI_BOTH)) {
         $old_km = $row['quantite'];
     }
     if($new_km == ""){
@@ -33,14 +31,12 @@
 	} else {
 		$km = $new_km;
     }
-    $updateKm = $db->prepare("update lignefraisforfait set quantite = :quantite where idFicheFrais = ".$id." and idForfait = \"KM\";");
-    $updateKm->execute(array(
-        "quantite" => $km
-    ));
+    $updateKm = $db->query("update lignefraisforfait set quantite = $quantite where idFicheFrais = $id and idForfait = \"KM\";");
+    
 
     /* NUITEE */
     $sqlNuit = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"NUI\";");
-    while ($row = $sqlNuit->fetch()) {
+    while ($row = $sqlNuit->fetch_array(MYSQLI_BOTH)) {
         $old_nuit = $row['quantite'];
     }
     if($new_nuit == ""){
@@ -48,14 +44,11 @@
 	} else {
 		$nuit = $new_nuit;
     }
-    $updateNuit = $db->prepare("update lignefraisforfait set quantite = :quantite where idFicheFrais = ".$id." and idForfait = \"NUI\";");
-    $updateNuit->execute(array(
-        "quantite" => $nuit
-    ));
-
+    $updateNuit = $db->query("update lignefraisforfait set quantite = $quantite where idFicheFrais = $id and idForfait = \"NUI\";");
+   
     /* REPAS */
     $sqlRepas = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"REP\";");
-    while ($row = $sqlRepas->fetch()) {
+    while ($row = $sqlRepas->fetch_array(MYSQLI_BOTH)) {
         $old_repas = $row['quantite'];
     }
     if($new_repas == ""){
@@ -63,9 +56,41 @@
 	} else {
 		$repas = $new_repas;
     }
-    $updateRepas = $db->prepare("update lignefraisforfait set quantite = :quantite where idFicheFrais = ".$id." and idForfait = \"REP\";");
-    $updateRepas->execute(array(
-        "quantite" => $repas
-    ));
+    $updateRepas = $db->query("update lignefraisforfait set quantite = $quantite where idFicheFrais = $id and idForfait = \"REP\";");
+   
 
-    echo "<script>document.location.replace('formlisteFicheFrais.php');</script>";
+    /* MONTANT */
+    $montantREP = $db->query("select montant from forfait where id = \"REP\";");
+    $montantNUI = $db->query("select montant from forfait where id = \"NUI\";");
+    $montantETP = $db->query("select montant from forfait where id = \"ETP\";");
+    $montantKM = $db->query("select montant from forfait where id = \"KM\";");
+
+    while($row = $montantETP->fetch_array(MYSQLI_BOTH)) {
+        $ETP = $row['montant'];
+        $prixETP = $ETP * $etape;
+    }
+    while($row = $montantNUI->fetch_array(MYSQLI_BOTH)) {
+        $NUI = $row['montant'];
+        $prixNUI = $NUI * $nuit;
+    }
+    while($row = $montantREP->fetch_array(MYSQLI_BOTH)) {
+        $REP = $row['montant'];
+        $prixREP = $REP * $repas;
+    }
+    while($row = $montantKM->fetch_array(MYSQLI_BOTH)) {
+        $KM = $row['montant'];
+        $prixKM = $KM * $km;
+    } 
+
+    /*
+    echo $prixREP."<br />";
+    echo $prixNUI."<br />";
+    echo $prixETP."<br />";
+    echo $prixKM."<br />";
+    */
+
+    $montantValide = $prixREP + $prixNUI + $prixETP + $prixKM;
+
+    $updateMontant = $db->query("update fichefrais set montantValide = ".$montantValide.";");
+
+    echo "<script>document.location.replace('formListeFicheFrais.php');</script>";

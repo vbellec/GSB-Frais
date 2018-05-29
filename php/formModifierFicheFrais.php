@@ -5,22 +5,22 @@
     $id = $_GET['id'];
 
     $sqlEtape = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"ETP\";");
-    while ($row = $sqlEtape->fetch()) {
+    while ($row = $sqlEtape->fetch_array(MYSQLI_BOTH)) {
         $etape = $row['quantite'];
     }
 
     $sqlkm = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"KM\";");
-    while ($row = $sqlkm->fetch()) {
+    while ($row = $sqlkm->fetch_array(MYSQLI_BOTH)) {
         $km = $row['quantite'];
     }
 
     $sqlNuit = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"NUI\";");
-    while ($row = $sqlNuit->fetch()) {
+    while ($row = $sqlNuit->fetch_array(MYSQLI_BOTH)) {
         $nuit = $row['quantite'];
     }
 
     $sqlRepas = $db->query("SELECT quantite FROM lignefraisforfait WHERE idFicheFrais = ".$id." and idForfait = \"REP\";");
-    while ($row = $sqlRepas->fetch()) {
+    while ($row = $sqlRepas->fetch_array(MYSQLI_BOTH)) {
         $repas = $row['quantite'];
     }
 ?>

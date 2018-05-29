@@ -64,7 +64,7 @@
                             <tbody>
                                 <?php 
                                     $sql = $db->query("select fraishorsforfait.id, montant, date, libelle, nom, prenom from fraishorsforfait, users where fraishorsforfait.idVisiteur = users.id;");
-                                    while($row = $sql->fetch()) {
+                                    while($row = $sql->fetch_array(MYSQLI_BOTH)) {
                                         $id = $row[0];
                                         $montant = $row['montant'];
                                         $date = date('d/m/Y', strtotime($row['date']));

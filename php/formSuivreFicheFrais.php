@@ -4,7 +4,7 @@
 
     /*
     $date = $db->query("select mois, annee from fichefrais where id = ".$id.";");
-    while($row = $date->fetch()) {
+    while($row = $date->fetch_array(MYSQLI_BOTH)) {
         $mois = $row['mois'];
         $annee = $row['annee'];
     } 
@@ -67,7 +67,7 @@
                                 <?php
                                     $result = $db->query("select distinct id from fichefrais;");
 
-                                    while ($row = $result->fetch()) {
+                                    while ($row = $result->fetch_array(MYSQLI_BOTH)) {
                                         $id = $row['id'];
 
                                         echo "<option id=\"".$id."\">Fiche n° ".$id."</option>";

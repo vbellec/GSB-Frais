@@ -20,7 +20,7 @@
                           and annee = \"".$annee."\"
                           and fichefrais.idEtat = \"CR\";");
 
-    while ($row = $sqlId->fetch()) {
+    while ($row = $sqlId->fetch_array(MYSQLI_BOTH)) {
         $idFicheFrais = $row[0];
     }
 
@@ -34,7 +34,7 @@
                           and idForfait = \"ETP\"
                           and fichefrais.idEtat = \"CR\";");
 
-    while ($row = $etape->fetch()) {
+    while ($row = $etape->fetch_array(MYSQLI_BOTH)) {
         $quantiteEtape = $row['quantite'];
     }
 
@@ -48,7 +48,7 @@
                           and idForfait = \"NUI\"
                           and fichefrais.idEtat = \"CR\";");
 
-    while ($row = $nuitee->fetch()) {
+    while ($row = $nuitee->fetch_array(MYSQLI_BOTH)) {
         $quantiteNuitee = $row['quantite'];
     }
 
@@ -62,7 +62,7 @@
                           and idForfait = \"REP\"
                           and fichefrais.idEtat = \"CR\";");
 
-    while ($row = $repas->fetch()) {
+    while ($row = $repas->fetch_array(MYSQLI_BOTH)) {
         $quantiteRepas = $row['quantite'];
     }
 
@@ -76,7 +76,7 @@
                           and idForfait = \"KM\"
                           and fichefrais.idEtat = \"CR\";");
 
-    while ($row = $km->fetch()) {
+    while ($row = $km->fetch_array(MYSQLI_BOTH)) {
         $quantiteKm = $row['quantite'];
     }
     
